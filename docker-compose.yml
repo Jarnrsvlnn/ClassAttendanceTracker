@@ -1,0 +1,14 @@
+services:
+  attendance-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: class-attendance-tracker
+    restart: always
+    working_dir: /var/www/html
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src/public:/var/www/html
+      - ./app:/var/www/app
+      - ./data:/var/www/data
