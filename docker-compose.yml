@@ -12,3 +12,4 @@ services:
       - ./src/public:/var/www/html
       - ./app:/var/www/app
       - ./data:/var/www/data
+      - ./views:/var/www/views

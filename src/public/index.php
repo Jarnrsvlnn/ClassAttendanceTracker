@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $rootDirectory = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR;
 
@@ -6,6 +6,7 @@ define('APP_PATH', $rootDirectory . 'app' . DIRECTORY_SEPARATOR);
 define('DATA_PATH', $rootDirectory . 'data' . DIRECTORY_SEPARATOR);
 
 require_once APP_PATH . "Student.php";
+require_once APP_PATH . "Attendance.php";
 require_once APP_PATH . "helpers.php";
 require_once DATA_PATH . "attendance_data.csv";
-require_once DATA_PATH . "students_data.php";
+require_once DATA_PATH . "students_data.csv";
