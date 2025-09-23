@@ -14,23 +14,29 @@ class DataHandling
     }
 
     // reads the file passed and gets the student data
-    public function readStudentData(string $studentData): array
+    private function readStudentData(string $studentData): array
     {
         $studentsDataArray = [];
+
+        // opens the specified file to read data from  
         if (($studentFile = fopen($studentData, 'r')) !== false) {
             while (($studentCsv = fgetcsv($studentFile, 0, ",", '"', "\\")) !== false) {
-                $studentsDataArray[] = $this->handleStudentData($studentCsv);
+                $studentData = $this->handleStudentData($studentCsv);
+                $student = new Student($studentData['id'], $studentData['name']);
+                $studentsDataArray[] = $student;
             }
         }
         return $studentsDataArray;
     }
 
-    public function readAttendanceData(string $attendanceData): array
+    private function readAttendanceData(string $attendanceData): array
     {
         $attendanceDataArray = [];
         if (($attendanceFile = fopen($attendanceData, 'r')) !== false) {
             while (($attendanceCsv = fgetcsv($attendanceFile, 0, ",", '"', "\\")) !== false) {
-                $attendanceDataArray[] = $this->handleAttendanceData($attendanceCsv);
+                $attendanceData = $this->handleAttendanceData($attendanceCsv);
+                $attendance = new Attendance($attendanceData['date'], $attendanceData['studentId'], $attendanceData['status']);
+                $attendanceDataArray[] = $attendance;
             }
         }
         return $attendanceDataArray;

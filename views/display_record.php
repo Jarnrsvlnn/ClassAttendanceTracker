@@ -31,26 +31,22 @@
     <table>
         <thead>
             <tr>
+                <th>Student ID</th>
+                <th>Name</th>
                 <th>Date</th>
-                <th>Check #</th>
-                <th>Description</th>
-                <th>Amount</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
-            <!-- YOUR CODE -->
+
         </tbody>
         <tfoot>
             <tr>
-                <th colspan="3">Total Income:</th>
+                <th colspan="3">Total Present:</th>
                 <td><!-- YOUR CODE --></td>
             </tr>
             <tr>
-                <th colspan="3">Total Expense:</th>
-                <td><!-- YOUR CODE --></td>
-            </tr>
-            <tr>
-                <th colspan="3">Net Total:</th>
+                <th colspan="3">Total Absent:</th>
                 <td><!-- YOUR CODE --></td>
             </tr>
         </tfoot>

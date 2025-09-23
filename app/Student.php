@@ -9,7 +9,5 @@ class Student {
         $this->name = $name;
         $this->id = $id;
     }
-
-
 }
 

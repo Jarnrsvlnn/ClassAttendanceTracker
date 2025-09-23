@@ -12,13 +12,14 @@ require_once APP_PATH . "Attendance.php";
 require_once APP_PATH . "helpers.php";
 require_once APP_PATH . 'data_handling.php';
 
+$datas = new DataHandling(DATA_PATH . 'students_data.csv', DATA_PATH . 'attendance_data.csv');
 
-$track = new DataHandling(DATA_PATH . 'students_data.csv', DATA_PATH . 'attendance_data.csv');
+require_once VIEWS_PATH . 'display_record.php';
 
 echo '<pre>';
-print_r($track->getStudentsData());
+print_r($datas->getStudentsData());
 echo '<pre/>';
 
 echo '<pre>';
-print_r($track->getAttendanceData());
+print_r($datas->getAttendanceData());
 echo '<pre/>';
