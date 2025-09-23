@@ -1,8 +1,9 @@
 <?php
 
-class Student {
-    private $name;
-    private $id;
+class Student
+{
+    public $name;
+    public $id;
 
     public function __construct($name, $id)
     {
@@ -10,4 +11,3 @@ class Student {
         $this->id = $id;
     }
 }
-

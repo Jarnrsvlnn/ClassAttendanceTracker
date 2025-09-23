@@ -4,6 +4,7 @@ class DataHandling
 {
     private array $studentsData = [];
     private array $attendanceData = [];
+    private array $combinedData = [];
 
     // gets the csv file to read from
 
@@ -22,7 +23,7 @@ class DataHandling
         if (($studentFile = fopen($studentData, 'r')) !== false) {
             while (($studentCsv = fgetcsv($studentFile, 0, ",", '"', "\\")) !== false) {
                 $studentData = $this->handleStudentData($studentCsv);
-                $student = new Student($studentData['id'], $studentData['name']);
+                $student = new Student($studentData['name'], $studentData['id']);
                 $studentsDataArray[] = $student;
             }
         }
@@ -40,16 +41,6 @@ class DataHandling
             }
         }
         return $attendanceDataArray;
-    }
-
-    public function getStudentsData(): array
-    {
-        return $this->studentsData;
-    }
-
-    public function getAttendanceData(): array
-    {
-        return $this->attendanceData;
     }
 
     private function handleStudentData(array $studentData): array
@@ -73,5 +64,44 @@ class DataHandling
             'studentId' => $studentId,
             'status' => $status
         ];
+    }
+
+    // handles the centralization of datas
+    private function handleCombineData(array $studentsData, array $attendanceData): array
+    {
+        $allDataArray = [];
+
+        foreach ($attendanceData as $attendance) {
+            foreach ($studentsData as $student) {
+                if ($attendance->studentId === $student->id) {
+                    $allDataArray[] = [
+                        'id' => $student->id,
+                        'name' => $student->name,
+                        'date' => $attendance->date,
+                        'status' => $attendance->status
+                    ];
+                }
+            }
+        }
+
+        return $allDataArray;
+    }
+
+    public function getStudentsData(): array
+    {
+        return $this->studentsData;
+    }
+
+    public function getAttendanceData(): array
+    {
+        return $this->attendanceData;
+    }
+
+    public function getAllData(): array
+    {
+        $allData = $this->handleCombineData($this->studentsData, $this->attendanceData);
+        $this->combinedData = $allData;
+
+        return $this->combinedData;
     }
 }

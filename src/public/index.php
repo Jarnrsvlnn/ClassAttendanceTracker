@@ -14,12 +14,8 @@ require_once APP_PATH . 'data_handling.php';
 
 $datas = new DataHandling(DATA_PATH . 'students_data.csv', DATA_PATH . 'attendance_data.csv');
 
+$students = $datas->getStudentsData();
+$attendance = $datas->getAttendanceData();
+$generalData = $datas->getAllData();
+
 require_once VIEWS_PATH . 'display_record.php';
-
-echo '<pre>';
-print_r($datas->getStudentsData());
-echo '<pre/>';
-
-echo '<pre>';
-print_r($datas->getAttendanceData());
-echo '<pre/>';

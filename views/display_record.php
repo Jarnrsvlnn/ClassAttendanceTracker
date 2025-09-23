@@ -39,6 +39,16 @@
         </thead>
         <tbody>
 
+            <?php foreach ($generalData as $data): ?>
+                <tr>
+                    <td><?= $data['id'] ?></td>
+                    <td><?= $data['name'] ?></td>
+                    <td><?= $data['date'] ?></td>
+                    <td><?= $data['status'] ?></td>
+                </tr>
+
+            <?php endforeach ?>
+
         </tbody>
         <tfoot>
             <tr>
