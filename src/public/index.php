@@ -10,10 +10,10 @@ define('VIEWS_PATH', $rootDirectory . 'views' . DIRECTORY_SEPARATOR);
 require_once APP_PATH . "Student.php";
 require_once APP_PATH . "Attendance.php";
 require_once APP_PATH . "helpers.php";
-require_once APP_PATH . 'AttendanceTracker.php';
+require_once APP_PATH . 'data_handling.php';
 
 
-$track = new AttendanceTracker(DATA_PATH . 'students_data.csv', DATA_PATH . 'attendance_data.csv');
+$track = new DataHandling(DATA_PATH . 'students_data.csv', DATA_PATH . 'attendance_data.csv');
 
 echo '<pre>';
 print_r($track->getStudentsData());

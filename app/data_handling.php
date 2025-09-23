@@ -1,6 +1,6 @@
 <?php
 
-class AttendanceTracker
+class DataHandling
 {
     private array $studentsData = [];
     private array $attendanceData = [];
@@ -19,7 +19,7 @@ class AttendanceTracker
         $studentsDataArray = [];
         if (($studentFile = fopen($studentData, 'r')) !== false) {
             while (($studentCsv = fgetcsv($studentFile, 0, ",", '"', "\\")) !== false) {
-                $studentsDataArray[] = $studentCsv;
+                $studentsDataArray[] = $this->handleStudentData($studentCsv);
             }
         }
         return $studentsDataArray;
@@ -30,7 +30,7 @@ class AttendanceTracker
         $attendanceDataArray = [];
         if (($attendanceFile = fopen($attendanceData, 'r')) !== false) {
             while (($attendanceCsv = fgetcsv($attendanceFile, 0, ",", '"', "\\")) !== false) {
-                $attendanceDataArray[] = $attendanceCsv;
+                $attendanceDataArray[] = $this->handleAttendanceData($attendanceCsv);
             }
         }
         return $attendanceDataArray;
@@ -44,5 +44,28 @@ class AttendanceTracker
     public function getAttendanceData(): array
     {
         return $this->attendanceData;
+    }
+
+    private function handleStudentData(array $studentData): array
+    {
+        // destructure the studentData array
+        [$id, $name] = $studentData;
+
+        return [
+            'id' => $id,
+            'name' => $name
+        ];
+    }
+
+    private function handleAttendanceData(array $attendanceData): array
+    {
+        // destructure the attendanceData array
+        [$date, $studentId, $status] = $attendanceData;
+
+        return [
+            'date' => $date,
+            'studentId' => $studentId,
+            'status' => $status
+        ];
     }
 }
