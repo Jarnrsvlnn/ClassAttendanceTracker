@@ -43,23 +43,15 @@
                 <tr>
                     <td><?= $data['id'] ?></td>
                     <td><?= $data['name'] ?></td>
-                    <td><?= $data['date'] ?></td>
-                    <td><?= $data['status'] ?></td>
+                    <td><?= formatDate($data['date']) ?></td>
+                    <td style="background-color: <?= $data['status'] === 'Present' ? 'rgb(144, 238, 144)' : 'rgb(255, 120, 120)' ?>;">
+                        <?= $data['status'] ?>
+                    </td>
                 </tr>
 
             <?php endforeach ?>
 
         </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="3">Total Present:</th>
-                <td><!-- YOUR CODE --></td>
-            </tr>
-            <tr>
-                <th colspan="3">Total Absent:</th>
-                <td><!-- YOUR CODE --></td>
-            </tr>
-        </tfoot>
     </table>
 </body>
 
