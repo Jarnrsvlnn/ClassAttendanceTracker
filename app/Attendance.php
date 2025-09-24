@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 class Attendance
 {
     private $date;
@@ -13,17 +15,17 @@ class Attendance
         $this->status = $status;
     }
 
-    public function getAttendanceDate()
+    public function getAttendanceDate(): string
     {
         return $this->date;
     }
 
-    public function getStudentID()
+    public function getStudentID(): string
     {
         return $this->studentId;
     }
 
-    public function getAttendanceStatus()
+    public function getAttendanceStatus(): string
     {
         return $this->status;
     }

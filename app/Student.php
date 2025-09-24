@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 class Student
 {
     private $name;
@@ -17,7 +19,7 @@ class Student
         return $this->name;
     }
 
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }

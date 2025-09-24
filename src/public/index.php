@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $rootDirectory = dirname(__DIR__) . DIRECTORY_SEPARATOR;
 
 define('APP_PATH', $rootDirectory . 'app' . DIRECTORY_SEPARATOR);
