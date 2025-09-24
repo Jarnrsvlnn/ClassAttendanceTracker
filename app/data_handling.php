@@ -73,12 +73,12 @@ class DataHandling
 
         foreach ($attendanceData as $attendance) {
             foreach ($studentsData as $student) {
-                if ($attendance->studentId === $student->id) {
+                if ($attendance->getStudentID() === $student->getId()) {
                     $allDataArray[] = [
-                        'id' => $student->id,
-                        'name' => $student->name,
-                        'date' => $attendance->date,
-                        'status' => $attendance->status
+                        'id' => $student->getId(),
+                        'name' => $student->getStudentName(),
+                        'date' => $attendance->getAttendanceDate(),
+                        'status' => $attendance->getAttendanceStatus()
                     ];
                 }
             }

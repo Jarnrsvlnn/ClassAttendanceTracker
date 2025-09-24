@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Transactions</title>
+    <title>AttendanceRecords</title>
     <style>
         table {
             width: 100%;
