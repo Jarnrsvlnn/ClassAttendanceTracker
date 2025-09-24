@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 class Student
 {
-    private $name;
-    private $id;
-
-    public function __construct($name, $id)
-    {
-        $this->name = $name;
-        $this->id = $id;
-    }
+    public function __construct(
+        private string $name,
+        private int $id
+    ) {}
 
     // applied encapsulation to only get the property by calling a function
     public function getStudentName(): string
@@ -19,7 +15,7 @@ class Student
         return $this->name;
     }
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }

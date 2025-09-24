@@ -25,7 +25,7 @@ class DataHandling
         if (($studentFile = fopen($studentData, 'r')) !== false) {
             while (($studentCsv = fgetcsv($studentFile, 0, ",", '"', "\\")) !== false) {
                 $studentData = $this->handleStudentData($studentCsv);
-                $student = new Student($studentData['name'], $studentData['id']);
+                $student = new Student($studentData['name'], (int)$studentData['id']);
                 $studentsDataArray[] = $student;
             }
         }
@@ -38,7 +38,7 @@ class DataHandling
         if (($attendanceFile = fopen($attendanceData, 'r')) !== false) {
             while (($attendanceCsv = fgetcsv($attendanceFile, 0, ",", '"', "\\")) !== false) {
                 $attendanceData = $this->handleAttendanceData($attendanceCsv);
-                $attendance = new Attendance($attendanceData['date'], $attendanceData['studentId'], $attendanceData['status']);
+                $attendance = new Attendance($attendanceData['date'], (int)$attendanceData['studentId'], $attendanceData['status']);
                 $attendanceDataArray[] = $attendance;
             }
         }

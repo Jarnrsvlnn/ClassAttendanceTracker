@@ -3,6 +3,7 @@
 
 <head>
     <title>Attendance Records</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         table {
             width: 100%;
@@ -54,5 +55,6 @@
         </tbody>
     </table>
 </body>
+<script src="script.js"></script>
 
 </html>
