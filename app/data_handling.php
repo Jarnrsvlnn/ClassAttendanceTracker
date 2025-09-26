@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+namespace App\DataHandling;
+
+use App\Student\Student;
+use App\Attendance\Attendance;
+
 class DataHandling
 {
     private array $studentsData = [];

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace App\Attendance;
+
 class Attendance
 {
     public function __construct(
